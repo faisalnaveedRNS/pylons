@@ -23,6 +23,12 @@ const (
 
 	denomDivider = "/"
 	ibcPrefix    = "ibc"
+
+	// minimum splits for cookbook
+	minCookBookDenomSplits = 2
+
+	// index for cook book id after splits
+	cookbookIdIndex = 0
 )
 
 // CookbookDenom converts a cookbookID, denom pair into a valid cookbookDenom string
@@ -37,12 +43,12 @@ func CookbookDenom(cookbookID, denom string) (string, error) {
 // IsCookbookDenom checks if an inputted denom is a valid cookbookDenom
 func IsCookbookDenom(denom string) bool {
 	split := strings.Split(denom, denomDivider)
-	if len(split) != 2 {
+	if len(split) != minCookBookDenomSplits {
 		return false
 	}
 
 	// validate cookbook ID
-	err := ValidateID(split[0])
+	err := ValidateID(split[cookbookIdIndex])
 	if err != nil {
 		return false
 	}
