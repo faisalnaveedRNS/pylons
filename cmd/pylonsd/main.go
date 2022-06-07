@@ -24,7 +24,7 @@ func main() {
 	)
 
 	rootCmd.Short = "Stargate Pylons App"
-	rootCmd.AddCommand(Completion())
+	rootCmd.AddCommand()
 	removeLineBreaksInCobraArgs(rootCmd)
 	if err := svrcmd.Execute(rootCmd, app.DefaultNodeHome); err != nil {
 		os.Exit(1)
