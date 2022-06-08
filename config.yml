@@ -32,9 +32,7 @@ accounts:
 validator:
   name: alice
   staked: "100000000ubedrock"
-client:
-  openapi:
-    path: "docs/static/openapi.yml"
+
 faucet:
   name: bob
   coins: [ "10000upylon", "10000ubedrock" ]

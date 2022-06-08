@@ -59,25 +59,46 @@ func TestValidateGoogleIAPSignature(t *testing.T) {
 
 func TestValidateGoogleIAPSignatureStatic(t *testing.T) {
 
-	googleInAppPurchasePubKey := "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwZsjhk6eN5Pve9pP3uqz2MwBFixvmCRtQJoDQLTEJo3zTd9VMZcXoerQX8cnDPclZWmMZWkO+BWcN1ikYdGHvU2gC7yBLi+TEkhsEkixMlbqOGRdmNptJJhqxuVmXK+drWTb6W0IgQ9g8CuCjZUiMTc0UjHb5mPOE/IhcuTZ0wCHdoqc5FS2spdQqrohvSEP7gR4ZgGzYNI1U+YZHskIEm2qC4ZtSaX9J/fDkAmmJFV2hzeDMcljCxY9+ZM1mdzIpZKwM7O6UdWRpwD1QJ7yXND8AQ9M46p16F0VQuZbbMKCs90NIcKkx6jDDGbVmJrFnUT1Oq1uYxNYtiZjTp+JowIDAQAB"
-
-	message := "{\"orderId\":\"GPA.3306-7591-0398-81065\",\"packageName\":\"tech.pylons.wallet\",\"productId\":\"free_pylons\",\"purchaseTime\":1654615777799,\"purchaseState\":0,\"purchaseToken\":\"cbejaahehaalippbalkpbdli.AO-J1OyEOB7m9ZzlFq_ChJprKL6TzIfnyrge0rklyT2tQGdy7ETk4F-xxmCTBYyGUMyqZY0TiZVqeKvCc7Y5eNQDOjgILTkovw\",\"acknowledged\":false}"
+	googleInAppPurchasePubKey := "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuMzgsJOZzyZvmOG8T9baGxDR/DWx6dgku7UdDfc6aGKthPGYouOa4KvLGEuNd+YTilwtEEryi3mmYAtl8MNtiAQCiry7HjdRNle8lLUHSKwBLVCswY3WGEAuW+5mo/V6X0klS8se65fIqCv2x/SKjtTZvKO/Oe3uehREMY1b8uWLrD5roubXzmaLsFGIRi5wdg8UWRe639LCNb2ghD2Uw0svBTJqn/ymsPmCfVjmCNNRDxfxzlA8O4EEKCK1qOdwIejMAfFMrN87u+0HTQbCKQ/xUQrR6fUhWT2mqttBGhi1NmTNBlUDyXYU+7ILbfJUVqQcKNDbFQd+xv9wBnXAhwIDAQAB"
+	message := `{"orderId":"GPA.3306-7591-0398-81065","packageName":"tech.pylons.wallet","productId":"free_pylons","purchaseTime":1654615777799,"purchaseState":0,"purchaseToken":"cbejaahehaalippbalkpbdli.AO-J1OyEOB7m9ZzlFq_ChJprKL6TzIfnyrge0rklyT2tQGdy7ETk4F-xxmCTBYyGUMyqZY0TiZVqeKvCc7Y5eNQDOjgILTkovw","acknowledged":false}`
 	encodedBase64Digest := base64.StdEncoding.EncodeToString([]byte(message))
+	signature := "O90FTzVlKiwRMasg0tgEF65tXoQi7BKOoA8K+2i1SuC0Mbi49Tw7JJAK6bHVXMqGn/urkANCJl1+Zu3vabp91SPLpT1hlVwzAC2NIRa5qs7D7DgAZiaRhqqP+01LNc3DKzxGWVThzT6Cq4PB0h2LyYDlZZBfGFXH9LAXd4e+lNTgewAs1zmBzWBDdFO1G8S7xxB373MgW9V9/rKZH1odyDaMBhbvhMgunmxdtmO6/MOuxkdg2FjvUxXzPTAmnUvoLEM2771caP5JAYxQNeejj2Te1QCTWZ1F66MIggJLEBBqq7sIafGRJ4zKHtpJyhR8iSKatzXcHrXMqUSqTs/W9Q=="
+	// msg := &MsgGoogleInAppPurchaseGetCoins{ReceiptDataBase64: encodedBase64Digest, Signature: signature}
+	// coinIssuer := CoinIssuer{GoogleInAppPurchasePubKey: googleInAppPurchasePubKey}
 
-	signaturebase64Encoded := "O90FTzVlKiwRMasg0tgEF65tXoQi7BKOoA8K+2i1SuC0Mbi49Tw7JJAK6bHVXMqGn/urkANCJl1+Zu3vabp91SPLpT1hlVwzAC2NIRa5qs7D7DgAZiaRhqqP+01LNc3DKzxGWVThzT6Cq4PB0h2LyYDlZZBfGFXH9LAXd4e+lNTgewAs1zmBzWBDdFO1G8S7xxB373MgW9V9/rKZH1odyDaMBhbvhMgunmxdtmO6/MOuxkdg2FjvUxXzPTAmnUvoLEM2771caP5JAYxQNeejj2Te1QCTWZ1F66MIggJLEBBqq7sIafGRJ4zKHtpJyhR8iSKatzXcHrXMqUSqTs/W9Q==" //base64.StdEncoding.EncodeToString(signature)
+	//signature := "O90FTzVlKiwRMasg0tgEF65tXoQi7BKOoA8K+2i1SuC0Mbi49Tw7JJAK6bHVXMqGn/urkANCJl1+Zu3vabp91SPLpT1hlVwzAC2NIRa5qs7D7DgAZiaRhqqP+01LNc3DKzxGWVThzT6Cq4PB0h2LyYDlZZBfGFXH9LAXd4e+lNTgewAs1zmBzWBDdFO1G8S7xxB373MgW9V9/rKZH1odyDaMBhbvhMgunmxdtmO6/MOuxkdg2FjvUxXzPTAmnUvoLEM2771caP5JAYxQNeejj2Te1QCTWZ1F66MIggJLEBBqq7sIafGRJ4zKHtpJyhR8iSKatzXcHrXMqUSqTs/W9Q=="
+	//	reciept64 := "eyJvcmRlcklkIjoiR1BBLjMzMDYtNzU5MS0wMzk4LTgxMDY1IiwicGFja2FnZU5hbWUiOiJ0ZWNoLnB5bG9ucy53YWxsZXQiLCJwcm9kdWN0SWQiOiJmcmVlX3B5bG9ucyIsInB1cmNoYXNlVGltZSI6MTY1NDYxNTc3Nzc5OSwicHVyY2hhc2VTdGF0ZSI6MCwicHVyY2hhc2VUb2tlbiI6ImNiZWphYWhlaGFhbGlwcGJhbGtwYmRsaS5BTy1KMU95RU9CN205WnpsRnFfQ2hKcHJLTDZUeklmbnlyZ2UwcmtseVQydFFHZHk3RVRrNEYteHhtQ1RCWXlHVU15cVpZMFRpWlZxZUt2Q2M3WTVlTlFET2pnSUxUa292dyIsImFja25vd2xlZGdlZCI6ZmFsc2V9"
+
+	msg := &MsgGoogleInAppPurchaseGetCoins{ReceiptDataBase64: encodedBase64Digest, Signature: signature}
+	coinIssuer := CoinIssuer{GoogleInAppPurchasePubKey: googleInAppPurchasePubKey}
+
 	tests := []struct {
 		name       string
 		coinIssuer CoinIssuer
 		msg        *MsgGoogleInAppPurchaseGetCoins
 		wantErr    bool
 	}{
-		{"valid purchase", CoinIssuer{GoogleInAppPurchasePubKey: googleInAppPurchasePubKey}, &MsgGoogleInAppPurchaseGetCoins{ReceiptDataBase64: encodedBase64Digest, Signature: signaturebase64Encoded}, false},
+		{"valid purchase", coinIssuer, msg, false},
 	}
 
 	for _, tt := range tests {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
-			require.Equal(t, tt.wantErr, ValidateGoogleIAPSignature(tt.msg, tt.coinIssuer) != nil)
+			require.Equal(t, tt.wantErr, ValidateGoogleIAPSignature(msg, tt.coinIssuer) != nil)
 		})
 	}
+}
+
+func TestValidateGoogleIAPSignatureStatic1(t *testing.T) {
+
+	signature := "O90FTzVlKiwRMasg0tgEF65tXoQi7BKOoA8K+2i1SuC0Mbi49Tw7JJAK6bHVXMqGn/urkANCJl1+Zu3vabp91SPLpT1hlVwzAC2NIRa5qs7D7DgAZiaRhqqP+01LNc3DKzxGWVThzT6Cq4PB0h2LyYDlZZBfGFXH9LAXd4e+lNTgewAs1zmBzWBDdFO1G8S7xxB373MgW9V9/rKZH1odyDaMBhbvhMgunmxdtmO6/MOuxkdg2FjvUxXzPTAmnUvoLEM2771caP5JAYxQNeejj2Te1QCTWZ1F66MIggJLEBBqq7sIafGRJ4zKHtpJyhR8iSKatzXcHrXMqUSqTs/W9Q=="
+	reciept64 := "eyJvcmRlcklkIjoiR1BBLjMzMDYtNzU5MS0wMzk4LTgxMDY1IiwicGFja2FnZU5hbWUiOiJ0ZWNoLnB5bG9ucy53YWxsZXQiLCJwcm9kdWN0SWQiOiJmcmVlX3B5bG9ucyIsInB1cmNoYXNlVGltZSI6MTY1NDYxNTc3Nzc5OSwicHVyY2hhc2VTdGF0ZSI6MCwicHVyY2hhc2VUb2tlbiI6ImNiZWphYWhlaGFhbGlwcGJhbGtwYmRsaS5BTy1KMU95RU9CN205WnpsRnFfQ2hKcHJLTDZUeklmbnlyZ2UwcmtseVQydFFHZHk3RVRrNEYteHhtQ1RCWXlHVU15cVpZMFRpWlZxZUt2Q2M3WTVlTlFET2pnSUxUa292dyIsImFja25vd2xlZGdlZCI6ZmFsc2V9"
+
+	msg := &MsgGoogleInAppPurchaseGetCoins{ReceiptDataBase64: reciept64, Signature: signature}
+	coinIssuer := CoinIssuer{GoogleInAppPurchasePubKey: "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuMzgsJOZzyZvmOG8T9baGxDR/DWx6dgku7UdDfc6aGKthPGYouOa4KvLGEuNd+YTilwtEEryi3mmYAtl8MNtiAQCiry7HjdRNle8lLUHSKwBLVCswY3WGEAuW+5mo/V6X0klS8se65fIqCv2x/SKjtTZvKO/Oe3uehREMY1b8uWLrD5roubXzmaLsFGIRi5wdg8UWRe639LCNb2ghD2Uw0svBTJqn/ymsPmCfVjmCNNRDxfxzlA8O4EEKCK1qOdwIejMAfFMrN87u+0HTQbCKQ/xUQrR6fUhWT2mqttBGhi1NmTNBlUDyXYU+7ILbfJUVqQcKNDbFQd+xv9wBnXAhwIDAQAB"}
+	err := ValidateGoogleIAPSignature(msg, coinIssuer)
+	if err != nil {
+		t.Fail()
+	}
+
 }
