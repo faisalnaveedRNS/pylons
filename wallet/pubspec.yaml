@@ -63,7 +63,7 @@ dependencies:
   icloud_storage: ^2.0.0
   image: ^3.2.0
   image_cropper: ^3.0.0
-  image_picker: ^0.8.5+3
+  image_picker: ^1.0.0
   in_app_purchase: ^3.0.7
   internet_connection_checker: ^1.0.0+1
   intl: ^0.17.0
