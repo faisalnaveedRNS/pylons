@@ -220,15 +220,30 @@
     arrify "^2.0.0"
     extend "^3.0.2"
 
+"@google-cloud/paginator@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/paginator/-/paginator-5.0.0.tgz#b8cc62f151685095d11467402cbf417c41bf14e6"
+  dependencies:
+    arrify "^2.0.0"
+    extend "^3.0.2"
+
 "@google-cloud/projectify@^3.0.0":
   version "3.0.0"
   resolved "https://registry.npmjs.org/@google-cloud/projectify/-/projectify-3.0.0.tgz"
+
+"@google-cloud/projectify@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/projectify/-/projectify-4.0.0.tgz#d600e0433daf51b88c1fa95ac7f02e38e80a07be"
 
 "@google-cloud/promisify@^3.0.0":
   version "3.0.0"
   resolved "https://registry.npmjs.org/@google-cloud/promisify/-/promisify-3.0.0.tgz"
 
-"@google-cloud/storage@^6.5.2", "@google-cloud/storage@^6.6.0":
+"@google-cloud/promisify@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/promisify/-/promisify-4.0.0.tgz#a906e533ebdd0f754dca2509933334ce58b8c8b1"
+
+"@google-cloud/storage@^6.5.2":
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/@google-cloud/storage/-/storage-6.6.0.tgz#01f64bf706acc98dc2787e490afe878ad9f64250"
   dependencies:
@@ -248,6 +263,28 @@
     p-limit "^3.0.1"
     retry-request "^5.0.0"
     teeny-request "^8.0.0"
+    uuid "^8.0.0"
+
+"@google-cloud/storage@^7.3.1":
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/@google-cloud/storage/-/storage-7.3.1.tgz#5a8e6c49765c70d71ae0fe8604d70bb646a89005"
+  dependencies:
+    "@google-cloud/paginator" "^5.0.0"
+    "@google-cloud/projectify" "^4.0.0"
+    "@google-cloud/promisify" "^4.0.0"
+    abort-controller "^3.0.0"
+    async-retry "^1.3.3"
+    compressible "^2.0.12"
+    duplexify "^4.0.0"
+    ent "^2.2.0"
+    fast-xml-parser "^4.3.0"
+    gaxios "^6.0.2"
+    google-auth-library "^9.0.0"
+    mime "^3.0.0"
+    mime-types "^2.0.8"
+    p-limit "^3.0.1"
+    retry-request "^7.0.0"
+    teeny-request "^9.0.0"
     uuid "^8.0.0"
 
 "@google/model-viewer@^2.0.2":
@@ -453,6 +490,10 @@
   dependencies:
     "@types/connect" "*"
     "@types/node" "*"
+
+"@types/caseless@*":
+  version "0.12.4"
+  resolved "https://registry.yarnpkg.com/@types/caseless/-/caseless-0.12.4.tgz#1326429a519cc077028150343fd502b04686bd6f"
 
 "@types/connect@*":
   version "3.4.35"
@@ -714,12 +755,25 @@
   version "1.2.4"
   resolved "https://registry.npmjs.org/@types/range-parser/-/range-parser-1.2.4.tgz"
 
+"@types/request@^2.48.8":
+  version "2.48.11"
+  resolved "https://registry.yarnpkg.com/@types/request/-/request-2.48.11.tgz#04b597ea308418422f7901c9a52b24967a2c4ed2"
+  dependencies:
+    "@types/caseless" "*"
+    "@types/node" "*"
+    "@types/tough-cookie" "*"
+    form-data "^2.5.0"
+
 "@types/serve-static@*":
   version "1.15.0"
   resolved "https://registry.npmjs.org/@types/serve-static/-/serve-static-1.15.0.tgz"
   dependencies:
     "@types/mime" "*"
     "@types/node" "*"
+
+"@types/tough-cookie@*":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@types/tough-cookie/-/tough-cookie-4.0.4.tgz#cf2f0c7c51b985b6afecea73eb2cd65421ecb717"
 
 "@types/trusted-types@^2.0.2":
   version "2.0.2"
@@ -748,6 +802,12 @@ agent-base@6:
   resolved "https://registry.npmjs.org/agent-base/-/agent-base-6.0.2.tgz"
   dependencies:
     debug "4"
+
+agent-base@^7.0.2:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-7.1.0.tgz#536802b76bc0b34aa50195eb2442276d613e3434"
+  dependencies:
+    debug "^4.3.4"
 
 ajv@^6.10.2, ajv@^6.9.1:
   version "6.12.6"
@@ -1270,7 +1330,7 @@ color@^0.11.0:
     color-convert "^1.3.0"
     color-string "^0.3.0"
 
-combined-stream@^1.0.8:
+combined-stream@^1.0.6, combined-stream@^1.0.8:
   version "1.0.8"
   resolved "https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.8.tgz"
   dependencies:
@@ -2433,6 +2493,12 @@ fast-text-encoding@^1.0.0, fast-text-encoding@^1.0.3:
   version "1.0.4"
   resolved "https://registry.npmjs.org/fast-text-encoding/-/fast-text-encoding-1.0.4.tgz"
 
+fast-xml-parser@^4.3.0:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-4.3.2.tgz#761e641260706d6e13251c4ef8e3f5694d4b0d79"
+  dependencies:
+    strnum "^1.0.5"
+
 faye-websocket@0.11.4:
   version "0.11.4"
   resolved "https://registry.npmjs.org/faye-websocket/-/faye-websocket-0.11.4.tgz"
@@ -2557,6 +2623,14 @@ for-each@^0.3.3:
   dependencies:
     is-callable "^1.1.3"
 
+form-data@^2.5.0:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.5.1.tgz#f2cbec57b5e59e23716e128fe44d4e5dd23895f4"
+  dependencies:
+    asynckit "^0.4.0"
+    combined-stream "^1.0.6"
+    mime-types "^2.1.12"
+
 form-data@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/form-data/-/form-data-4.0.0.tgz"
@@ -2608,26 +2682,7 @@ functions-have-names@^1.2.2:
   version "1.2.3"
   resolved "https://registry.npmjs.org/functions-have-names/-/functions-have-names-1.2.3.tgz"
 
-gaxios@^4.0.0:
-  version "4.3.3"
-  resolved "https://registry.npmjs.org/gaxios/-/gaxios-4.3.3.tgz"
-  dependencies:
-    abort-controller "^3.0.0"
-    extend "^3.0.2"
-    https-proxy-agent "^5.0.0"
-    is-stream "^2.0.0"
-    node-fetch "^2.6.7"
-
-gaxios@^5.0.0:
-  version "5.0.1"
-  resolved "https://registry.npmjs.org/gaxios/-/gaxios-5.0.1.tgz"
-  dependencies:
-    extend "^3.0.2"
-    https-proxy-agent "^5.0.0"
-    is-stream "^2.0.0"
-    node-fetch "^2.6.7"
-
-gaxios@^5.0.1:
+gaxios@^5.0.0, gaxios@^5.0.1:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/gaxios/-/gaxios-5.0.2.tgz#ca3a40e851c728d31d7001c2357062d46bf966d1"
   dependencies:
@@ -2636,11 +2691,27 @@ gaxios@^5.0.1:
     is-stream "^2.0.0"
     node-fetch "^2.6.7"
 
+gaxios@^6.0.0, gaxios@^6.0.2:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/gaxios/-/gaxios-6.1.1.tgz#549629f86a13e756b900f9ff7c94624670102938"
+  dependencies:
+    extend "^3.0.2"
+    https-proxy-agent "^7.0.1"
+    is-stream "^2.0.0"
+    node-fetch "^2.6.9"
+
 gcp-metadata@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npmjs.org/gcp-metadata/-/gcp-metadata-5.0.0.tgz"
   dependencies:
     gaxios "^5.0.0"
+    json-bigint "^1.0.0"
+
+gcp-metadata@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/gcp-metadata/-/gcp-metadata-6.0.0.tgz#2ae12008bef8caa8726cba31fd0a641ebad5fb56"
+  dependencies:
+    gaxios "^6.0.0"
     json-bigint "^1.0.0"
 
 get-caller-file@^2.0.1, get-caller-file@^2.0.5:
@@ -2691,21 +2762,7 @@ globals@^11.1.0, globals@^11.7.0:
   version "11.12.0"
   resolved "https://registry.npmjs.org/globals/-/globals-11.12.0.tgz"
 
-google-auth-library@^8.0.1:
-  version "8.1.1"
-  resolved "https://registry.npmjs.org/google-auth-library/-/google-auth-library-8.1.1.tgz"
-  dependencies:
-    arrify "^2.0.0"
-    base64-js "^1.3.0"
-    ecdsa-sig-formatter "^1.0.11"
-    fast-text-encoding "^1.0.0"
-    gaxios "^5.0.0"
-    gcp-metadata "^5.0.0"
-    gtoken "^6.0.0"
-    jws "^4.0.0"
-    lru-cache "^6.0.0"
-
-google-auth-library@^8.0.2:
+google-auth-library@^8.0.1, google-auth-library@^8.0.2:
   version "8.6.0"
   resolved "https://registry.yarnpkg.com/google-auth-library/-/google-auth-library-8.6.0.tgz#79cc4c8bacffee26bac244f25f4968ac87218bb8"
   dependencies:
@@ -2716,6 +2773,18 @@ google-auth-library@^8.0.2:
     gaxios "^5.0.0"
     gcp-metadata "^5.0.0"
     gtoken "^6.1.0"
+    jws "^4.0.0"
+    lru-cache "^6.0.0"
+
+google-auth-library@^9.0.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/google-auth-library/-/google-auth-library-9.1.0.tgz#5c8444ca5c298030bbd7535f13b84748a86a8091"
+  dependencies:
+    base64-js "^1.3.0"
+    ecdsa-sig-formatter "^1.0.11"
+    gaxios "^6.0.0"
+    gcp-metadata "^6.0.0"
+    gtoken "^7.0.0"
     jws "^4.0.0"
     lru-cache "^6.0.0"
 
@@ -2748,20 +2817,19 @@ graceful-fs@^4.1.6, graceful-fs@^4.1.9, graceful-fs@^4.2.0:
   version "4.2.10"
   resolved "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.10.tgz"
 
-gtoken@^6.0.0:
-  version "6.1.0"
-  resolved "https://registry.npmjs.org/gtoken/-/gtoken-6.1.0.tgz"
-  dependencies:
-    gaxios "^4.0.0"
-    google-p12-pem "^4.0.0"
-    jws "^4.0.0"
-
 gtoken@^6.1.0:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/gtoken/-/gtoken-6.1.2.tgz#aeb7bdb019ff4c3ba3ac100bbe7b6e74dce0e8bc"
   dependencies:
     gaxios "^5.0.1"
     google-p12-pem "^4.0.0"
+    jws "^4.0.0"
+
+gtoken@^7.0.0:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/gtoken/-/gtoken-7.0.1.tgz#b64bd01d88268ea3a3572c9076a85d1c48f1a455"
+  dependencies:
+    gaxios "^6.0.0"
     jws "^4.0.0"
 
 has-bigints@^1.0.1, has-bigints@^1.0.2:
@@ -2879,6 +2947,13 @@ https-proxy-agent@^5.0.0:
   resolved "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-5.0.1.tgz"
   dependencies:
     agent-base "6"
+    debug "4"
+
+https-proxy-agent@^7.0.1:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-7.0.2.tgz#e2645b846b90e96c6e6f347fb5b2e41f1590b09b"
+  dependencies:
+    agent-base "^7.0.2"
     debug "4"
 
 iconv-lite@0.4, iconv-lite@^0.4.24:
@@ -3636,6 +3711,12 @@ node-addon-api@^2.0.0:
 node-fetch@2.6.7, node-fetch@^2.6.1, node-fetch@^2.6.7:
   version "2.6.7"
   resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.7.tgz"
+  dependencies:
+    whatwg-url "^5.0.0"
+
+node-fetch@^2.6.9:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.7.0.tgz#d0f0fa6e3e2dc1d27efcd8ad99d550bda94d187d"
   dependencies:
     whatwg-url "^5.0.0"
 
@@ -4415,6 +4496,15 @@ retry-request@^5.0.0:
     debug "^4.1.1"
     extend "^3.0.2"
 
+retry-request@^7.0.0:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/retry-request/-/retry-request-7.0.1.tgz#b0163aeb934bd3fa2de76902d683b09b8ce364ba"
+  dependencies:
+    "@types/request" "^2.48.8"
+    debug "^4.1.1"
+    extend "^3.0.2"
+    teeny-request "^9.0.0"
+
 retry@0.13.1:
   version "0.13.1"
   resolved "https://registry.npmjs.org/retry/-/retry-0.13.1.tgz"
@@ -4721,6 +4811,10 @@ strip-json-comments@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.1.1.tgz#31f1281b3832630434831c310c01cccda8cbe006"
 
+strnum@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/strnum/-/strnum-1.0.5.tgz#5c4e829fe15ad4ff0d20c3db5ac97b73c9b072db"
+
 stubs@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/stubs/-/stubs-3.0.0.tgz"
@@ -4810,6 +4904,16 @@ teeny-request@^8.0.0:
     node-fetch "^2.6.1"
     stream-events "^1.0.5"
     uuid "^8.0.0"
+
+teeny-request@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/teeny-request/-/teeny-request-9.0.0.tgz#18140de2eb6595771b1b02203312dfad79a4716d"
+  dependencies:
+    http-proxy-agent "^5.0.0"
+    https-proxy-agent "^5.0.0"
+    node-fetch "^2.6.9"
+    stream-events "^1.0.5"
+    uuid "^9.0.0"
 
 tendermint@^5.0.2:
   version "5.0.2"
