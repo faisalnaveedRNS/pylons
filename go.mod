@@ -16,7 +16,7 @@ require (
 	github.com/cosmos/cosmos-sdk v0.46.6
 	github.com/cosmos/ibc-go/v5 v5.1.0
 	github.com/gogo/protobuf v1.3.3
-	github.com/golang/protobuf v1.5.2
+	github.com/golang/protobuf v1.5.4
 	github.com/google/cel-go v0.12.4
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0
 	github.com/ignite/cli v0.25.1
@@ -177,7 +177,7 @@ require (
 	golang.org/x/xerrors v0.0.0-20220609144429-65e65417b02f // indirect
 	google.golang.org/api v0.93.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/protobuf v1.28.2-0.20220831092852-f930b1dc76e8
+	google.golang.org/protobuf v1.33.0
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	nhooyr.io/websocket v1.8.7 // indirect
